@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --color-aurora-1: #6366f1;
+  --color-aurora-2: #8b5cf6;
+  --color-aurora-3: #3b82f6;
+  --color-aurora-4: #06b6d4;
+
+  --color-surface-dark: #0a0a0f;
+  --color-surface-light: #f8fafc;
+  --color-glass-dark: rgba(255, 255, 255, 0.05);
+  --color-glass-light: rgba(255, 255, 255, 0.65);
+  --color-border-dark: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(15, 23, 42, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply font-sans antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/30 text-indigo-900 dark:text-indigo-100;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl border;
+    background: var(--color-glass-light);
+    border-color: var(--color-border-light);
+  }
+
+  .dark .glass {
+    background: var(--color-glass-dark);
+    border-color: var(--color-border-dark);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border rounded-2xl shadow-lg shadow-indigo-500/5;
+    background: var(--color-glass-light);
+    border-color: var(--color-border-light);
+  }
+
+  .dark .glass-card {
+    background: var(--color-glass-dark);
+    border-color: var(--color-border-dark);
+  }
+
+  .aurora-gradient {
+    background: linear-gradient(135deg,
+        var(--color-aurora-1) 0%,
+        var(--color-aurora-2) 35%,
+        var(--color-aurora-3) 70%,
+        var(--color-aurora-4) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg,
+        var(--color-aurora-1) 0%,
+        var(--color-aurora-2) 35%,
+        var(--color-aurora-3) 70%,
+        var(--color-aurora-4) 100%);
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-20 md:py-28;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto w-full;
+  }
+}
+
+@media (pointer: fine) {
+  body.custom-cursor * {
+    cursor: none !important;
+  }
+}
