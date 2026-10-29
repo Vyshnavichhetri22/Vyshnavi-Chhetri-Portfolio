@@ -77,7 +77,7 @@ export default function Hero() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
               <Button
-                href={SITE_CONFIG.resumePath}
+                href={resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="primary"
@@ -88,7 +88,7 @@ export default function Hero() {
               </Button>
 
               <Button
-                href={SITE_CONFIG.resumePath}
+                href={resumePath}
                 download
                 variant="primary"
                 size="lg"
